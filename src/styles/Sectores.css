@@ -1,0 +1,79 @@
+.field_contender {
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.field_contender h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+/* Buscador */
+.buscador {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.buscador input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Botones de mapas */
+.mapas {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mapas button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn_lv, .btn_cc {
+  background-color: #2980b9;
+}
+.btn_lv:hover, .btn_cc:hover  {
+  background-color: #1f6391;
+}
+
+
+/*27ae60*/
+
+#map {
+  width: 100%;
+  height: 80vh;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.etiqueta-sector {
+  font-weight: bold;
+  background-color: #333;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* Común para ambos botones cuando están activos */
+.mapas button.activo {
+  background-color: #27ae60;
+}

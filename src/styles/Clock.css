@@ -1,0 +1,12 @@
+.clock {
+  font-size: 2rem;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  color: #222;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 12px;
+  width: fit-content;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
