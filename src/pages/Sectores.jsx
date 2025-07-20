@@ -67,7 +67,7 @@ export default function Sectores() {
 
     cargarMapa('/maps/Sectores_AZ_LV.kml')
 
-    // map.locate({ setView: true, maxZoom: 16 })
+    map.locate({ setView: true, maxZoom: 16 })
     // map.on('locationfound', (e) => {
     //   L.circleMarker(e.latlng, {
     //     radius: 8,
