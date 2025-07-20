@@ -63,7 +63,10 @@ export default function Sectores() {
     const map = L.map(mapContainerRef.current).setView([-18.363, -70.299], 15)
     mapRef.current = map
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map)
 
     cargarMapa('/maps/Sectores_AZ_LV.kml')
 
