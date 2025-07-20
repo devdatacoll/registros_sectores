@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' https://unpkg.com 'unsafe-inline'; connect-src 'self' https://api-sb-sa.onrender.com https://tile.openstreetmap.org; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; object-src 'none'; frame-ancestors 'none';"
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api-sb-sa.onrender.com https://tile.openstreetmap.org; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; object-src 'none'; frame-ancestors 'none';"
         },
         {
           "key": "Strict-Transport-Security",
