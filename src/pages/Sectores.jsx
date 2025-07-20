@@ -68,23 +68,23 @@ export default function Sectores() {
     cargarMapa('/maps/Sectores_AZ_LV.kml')
 
     map.locate({ setView: true, maxZoom: 16 })
-    // map.on('locationfound', (e) => {
-    //   L.circleMarker(e.latlng, {
-    //     radius: 8,
-    //     fillColor: '#136AEC',
-    //     color: '#fff',
-    //     weight: 2,
-    //     opacity: 1,
-    //     fillOpacity: 0.8,
-    //   })
-    //     .addTo(map)
-    //     .bindPopup('Estás aquí')
-    //     .openPopup()
-    // })
+    map.on('locationfound', (e) => {
+      L.circleMarker(e.latlng, {
+        radius: 8,
+        fillColor: '#136AEC',
+        color: '#fff',
+        weight: 2,
+        opacity: 1,
+        fillOpacity: 0.8,
+      })
+        .addTo(map)
+        .bindPopup('Estás aquí')
+        .openPopup()
+    })
 
-    // map.on('locationerror', (e) => {
-    //   alert('No se pudo obtener tu ubicación: ' + e.message)
-    // })
+    map.on('locationerror', (e) => {
+      alert('No se pudo obtener tu ubicación: ' + e.message)
+    })
   }, [])
 
   const handleBuscar = (e) => {
