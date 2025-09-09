@@ -12,7 +12,8 @@ function Registros() {
   useEffect(() => {
     const obtenerAsignados = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/asignados`, {
+        //const res = await fetch(`${import.meta.env.VITE_API_URL}/asignados`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/asignados/today`, {
           headers: {
             Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
           },
