@@ -1,4 +1,4 @@
-// src/App.jsx
+import { useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import AppRoutes from './routes/AppRoutes';
