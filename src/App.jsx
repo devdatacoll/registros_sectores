@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       window.location.reload();
-    }, 1 * 60 * 1000); // 5 minutos en milisegundos
+    }, 5 * 60 * 1000); // 5 minutos en milisegundos
 
     return () => clearInterval(interval); // Limpieza al desmontar
   }, []);
