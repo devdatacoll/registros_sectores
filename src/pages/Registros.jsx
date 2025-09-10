@@ -60,7 +60,7 @@ const [asignados, setAsignados] = useState([])
 
     const intervalo = setInterval(() => {
       obtenerAsignados(); // Llamada cada 5 minutos
-    }, 5 * 60 * 1000);
+    }, 1 * 60 * 1000);
 
     return () => clearInterval(intervalo); // Limpieza al desmontar
   }, []);
