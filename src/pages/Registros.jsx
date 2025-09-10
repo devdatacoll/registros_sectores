@@ -67,10 +67,7 @@ const [asignados, setAsignados] = useState([])
 
   const now = useCurrentTime();
 
-
   //------
-
-  const now = useCurrentTime()
 
   return (
     <>
