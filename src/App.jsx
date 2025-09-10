@@ -8,6 +8,16 @@ function App() {
   const location = useLocation();
   const hideNavbar = location.pathname === '/login';
 
+  // ⏱️ Recarga automática cada 5 minutos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      window.location.reload();
+    }, 1 * 60 * 1000); // 5 minutos en milisegundos
+
+    return () => clearInterval(interval); // Limpieza al desmontar
+  }, []);
+
+
   return (
     <AuthProvider>
       {!hideNavbar && <Navbar />}
