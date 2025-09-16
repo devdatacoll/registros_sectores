@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
   const navigate = useNavigate()
 
   const login = (username, password) => {
-    if (username === 'admin' && password === 'admi2025') {
+    if (username === 'admin' && password === '1234qwe') {
       localStorage.setItem('auth', 'true')
       setIsAuthenticated(true)
       navigate('/registros')
