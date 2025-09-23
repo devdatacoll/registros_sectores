@@ -63,6 +63,11 @@
     background-color: #ff000060;
     color: #155724;
   }
+
+  .estado-tag.iniciado {
+    background-color: #94030360;
+    color: #155724;
+  }
   
   .btn-trash {
     background: none;
