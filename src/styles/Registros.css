@@ -63,12 +63,12 @@
   
   .estado-tag.bloqueado {
     background-color: #ff000060;
-    color: #ff0000;
+    color: #020202;
   }
 
   .estado-tag.iniciado {
     background-color: #f8000060;
-    color: #ffffff;
+    color: #8b3a3a;
   }
   
   .btn-trash {
