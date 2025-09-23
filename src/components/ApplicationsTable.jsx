@@ -17,7 +17,7 @@ export default function ApplicationsTable({ asignados, now }) {
       </thead>
       <tbody>
         {asignados.map((registro, index) => {
-          const estado = calcularEstado(registro.horareingresoestimada, now)
+          const estado = calcularEstado(registro.horareingresoestimada, now, registro.estado)
 
           return (
             <tr key={index}>
