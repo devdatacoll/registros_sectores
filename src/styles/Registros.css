@@ -63,7 +63,7 @@
   
   .estado-tag.bloqueado {
     background-color: #ff000060;
-    color: #155724;
+    color: #ff0000;
   }
 
   .estado-tag.iniciado {
