@@ -1,4 +1,8 @@
 export const calcularEstado = (horaTermino, now, estado) => {
+  if(estado === 7) {
+    return 'Iniciado'
+  }
+
   if (!horaTermino) {
     return 'Pendiente'
   }
@@ -6,11 +10,7 @@ export const calcularEstado = (horaTermino, now, estado) => {
   const fecha1 = new Date(now)
   const fecha2 = new Date(horaTermino)
 
-  if(estado === 7) {
-    return 'Iniciado'
-  } else {
-    return fecha1 >= fecha2 ? 'Disponible' : 'Bloqueado'
-  }
+  return fecha1 >= fecha2 ? 'Disponible' : 'Bloqueado'
 }
 
 export const formatoFecha = (fechaOriginal) => {
