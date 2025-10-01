@@ -8,6 +8,7 @@ export default function ApplicationsTable({ asignados, now }) {
           <th>Fecha programada</th>
           <th>Campo</th>
           <th>Sector</th>
+          <th>Tipo</th>
           <th>Fecha/Hora Inicio</th>
           <th>Fecha/Hora Término</th>
           <th>Horas Reingreso</th>
@@ -25,6 +26,7 @@ export default function ApplicationsTable({ asignados, now }) {
               <td>{registro.dia_panificada}</td>
               <td>{registro.campo}</td>
               <td>{registro.sector}</td>
+              <td>{registro.tipo}</td>
               <td>
                 {registro.hora_inicio ? formatoFecha(registro.hora_inicio) : ''}
               </td>
