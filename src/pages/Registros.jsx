@@ -36,10 +36,10 @@ function Registros() {
 
   */
   //-----
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-  const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+  //const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+  //const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-  const supabase = createClient(supabaseUrl, supabaseKey)
+  //const supabase = createClient(supabaseUrl, supabaseKey)
   /*
   const supabase = createClient(
     process.env.VITE_SUPABASE_URL,
@@ -67,7 +67,7 @@ function Registros() {
     }
   }
 */
-
+/*
   const obtenerDatos = async () => {
     const { data, error } = await supabase
       .from("view_asignados_today") // Nombre exacto de la tabla
@@ -84,14 +84,14 @@ function Registros() {
   useEffect(() => {
     obtenerDatos()
   }, [])
-
+*/
   //---------------
 
 
   const [asignados, setAsignados] = useState([])
 
   const obtenerAsignados = async () => {
-    /*try {
+    try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/asignados/today`, {
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`
@@ -104,18 +104,7 @@ function Registros() {
       setAsignados(data)
     } catch (error) {
       console.error('❌ Error:', error.message)
-    }*/
-
-    try {
-      const { data, error } = await supabase
-        .from('view_asignados_today')
-        .select('*')
-      
-      if (error) throw error
-      setAsignados(data)
-    } catch (error) {
-      console.error('Error:', error.message)
-    } 
+    }
   }
 
   useEffect(() => {
