@@ -4,7 +4,7 @@ import Clock from '../components/Clock'
 import ApplicationsTable from '../components/ApplicationsTable'
 import useCurrentTime from '../hooks/useCurrentTime'
 
-const { createClient } = require("@supabase/supabase-js");
+import { createClient } from "@supabase/supabase-js"
 
 import '../styles/Registros.css'
 
