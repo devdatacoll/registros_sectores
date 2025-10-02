@@ -4,7 +4,7 @@ import Clock from '../components/Clock'
 import ApplicationsTable from '../components/ApplicationsTable'
 import useCurrentTime from '../hooks/useCurrentTime'
 
-import { createClient } from "@supabase/supabase-js"
+import { createClient } from '@supabase/supabase-js'
 
 import '../styles/Registros.css'
 
@@ -43,7 +43,7 @@ function Registros() {
   )
 
   //---------------
-
+/*
   useEffect(() => {
     fetchData()
   }, [])
@@ -62,7 +62,24 @@ function Registros() {
       setLoading(false)
     }
   }
+*/
 
+  const obtenerDatos = async () => {
+    const { data, error } = await supabase
+      .from("view_asignados_today") // Nombre exacto de la tabla
+      .select("*") // Todas las columnas
+
+    if (error) {
+      console.error("Error al obtener datos:", error)
+    } else {
+      setDatos(data)
+      //console.log("Datos obtenidos:", data)
+    }
+  }
+
+  useEffect(() => {
+    obtenerDatos()
+  }, [])
 
   //---------------
 
