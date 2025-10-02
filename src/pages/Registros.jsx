@@ -41,9 +41,12 @@ const [asignados, setAsignados] = useState([])
   const obtenerAsignados = async () => {
     try {
       //const res = await fetch(`${import.meta.env.VITE_API_URL}/asignados/today`, {
+      //  headers: {
+      //    Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`
+      //  },
+      //});
       const res = await fetch(`https://yxzevjktytzjeszqeojt.supabase.co/rest/v1/view_asignados_today?select=*`, {
         headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
           apikey: `${import.meta.env.VITE_API_APIK}`
         },
       });
