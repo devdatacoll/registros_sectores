@@ -47,6 +47,7 @@ const [asignados, setAsignados] = useState([])
       //});
       const res = await fetch(`https://yxzevjktytzjeszqeojt.supabase.co/rest/v1/view_asignados_today?select=*`, {
         headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_API_APIK}`
           apikey: `${import.meta.env.VITE_API_APIK}`
         },
       });
