@@ -18,9 +18,7 @@ export default function ApplicationsTable({ asignados, now }) {
       </thead>
       <tbody>
         {asignados.map((registro, index) => {
-          console.log(registro)
           const estado = calcularEstado(registro.horareingresoestimada, now, registro.estado)
-          console.log(estado)
           return (
             <tr key={index}>
               <td>{registro.dia_panificada}</td>
