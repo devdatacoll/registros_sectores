@@ -112,7 +112,7 @@ function Registros() {
 
     const intervalo = setInterval(() => {
       obtenerAsignados(); // Llamada cada 5 minutos
-    }, 1 * 60 * 1000);
+    }, 1 * 300 * 1000);
 
     return () => clearInterval(intervalo); // Limpieza al desmontar
   }, []);
