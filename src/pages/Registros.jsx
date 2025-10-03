@@ -4,7 +4,7 @@ import Clock from '../components/Clock'
 import ApplicationsTable from '../components/ApplicationsTable'
 import useCurrentTime from '../hooks/useCurrentTime'
 
-import { createClient } from '@supabase/supabase-js'
+import { supabase } from '../data/supabaseClient'
 
 import '../styles/Registros.css'
 
@@ -88,34 +88,49 @@ function Registros() {
   //---------------
 
 
-  const [asignados, setAsignados] = useState([])
+  // const [asignados, setAsignados] = useState([])
 
-  const obtenerAsignados = async () => {
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/asignados/today`, {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`
-        },
-      });
+  // const obtenerAsignados = async () => {
+  //   try {
+  //     const res = await fetch(`${import.meta.env.VITE_API_URL}/asignados/today`, {
+  //       headers: {
+  //         Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`
+  //       },
+  //     });
 
-      if (!res.ok) throw new Error('Error al obtener asignados')
+  //     if (!res.ok) throw new Error('Error al obtener asignados')
 
-      const data = await res.json()
-      setAsignados(data)
-    } catch (error) {
-      console.error('❌ Error:', error.message)
-    }
-  }
+  //     const data = await res.json()
+  //     setAsignados(data)
+  //   } catch (error) {
+  //     console.error('❌ Error:', error.message)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   obtenerAsignados(); // Llamada inicial
+
+  //   const intervalo = setInterval(() => {
+  //     obtenerAsignados(); // Llamada cada 5 minutos
+  //   }, 1 * 300 * 1000);
+
+  //   return () => clearInterval(intervalo); // Limpieza al desmontar
+  // }, []);
+
+  const [data, setData] = useState([])
 
   useEffect(() => {
-    obtenerAsignados(); // Llamada inicial
+    async function fetchData() {
+      const { data, error } = await supabase
+        .from('view_asignados_today')
+        .select('*')
 
-    const intervalo = setInterval(() => {
-      obtenerAsignados(); // Llamada cada 5 minutos
-    }, 1 * 300 * 1000);
+      if (error) console.error('Error:', error)
+      else setData(data)
+    }
 
-    return () => clearInterval(intervalo); // Limpieza al desmontar
-  }, []);
+    fetchData()
+  }, [])
 
   const now = useCurrentTime();
 
@@ -126,7 +141,7 @@ function Registros() {
       <div className="table-container">
         <h2>Registros de aplicaciones v01</h2>
         <Clock />
-        <ApplicationsTable asignados={asignados} now={now} />
+        <ApplicationsTable asignados={data} now={now} />
       </div>
     </>
   )
