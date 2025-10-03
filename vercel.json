@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; connect-src 'self' https://api-sb-sa.onrender.com https://tile.openstreetmap.org; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; img-src 'self' data: https://*; font-src 'self'; object-src 'none'; frame-ancestors 'none';"
+          "value": "default-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; connect-src 'self' https://yxzevjktytzjeszqeojt.supabase.co https://tile.openstreetmap.org; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; img-src 'self' data: https://*; font-src 'self'; object-src 'none'; frame-ancestors 'none';"
         },
         {
           "key": "Strict-Transport-Security",
