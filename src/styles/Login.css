@@ -1,91 +1,75 @@
-.login-container{
-  min-height: 100vh;
+.login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Segoe UI", Arial, sans-serif;
-  margin: 0;
-
-  display: flex;
-  flex-direction: column;
-} 
-
-/* .login-container {
-  background: #fff;
-  padding: 40px 32px 32px 32px;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-
-.login-container form {
-  background: #fff;
-  border-radius: 16px;
-
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.login-container h2 {
-  margin-bottom: 24px;
-  color: #2980b9;
-  letter-spacing: 1px;
-}
-
-.login-container input {
-  width: 100%;
-  padding: 12px 10px;
-  margin-bottom: 18px;
-  border: 1px solid #b2bec3;
+.login-card {
+  background: white;
+  padding: 40px;
   border-radius: 8px;
-  background: #f5f6fa;
-  font-size: 1em;
-  transition: border 0.2s;
-}
-
-.login-container input,
-.login-container button {
   width: 100%;
-  box-sizing: border-box;
-  margin: 0;
+  max-width: 400px;
 }
 
-.login-container button {
+.login-card h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(90deg, #2980b9, #6dd5fa);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-.login-container input:focus {
-  border: 1.5px solid #2980b9;
+.form-group input:focus {
   outline: none;
-  background: #eaf6fb;
-}
-.login-container button:hover {
-  background: linear-gradient(90deg, #2574a9, #48c6ef);
+  border-color: #4CAF50;
 }
 
-.error {
-  color: #e74c3c;
-  font-size: 0.95em;
-  margin-top: 4px;
-  min-height: 18px;
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
   text-align: center;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #45a049;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
