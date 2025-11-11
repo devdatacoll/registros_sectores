@@ -4,6 +4,7 @@ import { calcularEstado, formatoFecha } from '../utils/dateUtils'
 
 export default function ApplicationsTable({ asignados, now }) {
   const [isMobile, setIsMobile] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -14,6 +15,18 @@ export default function ApplicationsTable({ asignados, now }) {
     window.addEventListener('resize', checkScreenSize)
     return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
+
+  // 🔍 FILTRAR REGISTROS POR BÚSQUEDA DE SECTOR
+  const registrosFiltrados = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return asignados
+    }
+    
+    const termino = searchTerm.toUpperCase().trim()
+    return asignados.filter(registro => 
+      registro.sector && registro.sector.toUpperCase().includes(termino)
+    )
+  }, [asignados, searchTerm])
 
   // 🎯 ORDENAR REGISTROS POR ESTADO (optimizado con useMemo)
   const registrosOrdenados = useMemo(() => {
@@ -26,7 +39,7 @@ export default function ApplicationsTable({ asignados, now }) {
       'completado': 5
     }
 
-    return [...asignados].sort((a, b) => {
+    return [...registrosFiltrados].sort((a, b) => {
       // Calcular estados
       const estadoA = calcularEstado(a.horareingresoestimada, now, a.estado)
       const estadoB = calcularEstado(b.horareingresoestimada, now, b.estado)
@@ -51,12 +64,31 @@ export default function ApplicationsTable({ asignados, now }) {
       
       return 0
     })
-  }, [asignados, now])
+  }, [registrosFiltrados, now])
 
   // Vista de cards para móviles
   if (isMobile) {
     return (
-      <div className="cards-container">
+      <>
+        <div className="search-container">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="🔍 Buscar por sector (ej: LV, AZ01...)"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          {searchTerm && (
+            <button 
+              className="clear-search"
+              onClick={() => setSearchTerm('')}
+              aria-label="Limpiar búsqueda"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+        <div className="cards-container">
         {registrosOrdenados.map((registro, index) => {
           const estado = calcularEstado(
             registro.horareingresoestimada,
@@ -115,13 +147,33 @@ export default function ApplicationsTable({ asignados, now }) {
             </div>
           )
         })}
-      </div>
+        </div>
+      </>
     )
   }
 
   // Vista de tabla para desktop/tablet
   return (
-    <div className="table-wrapper">
+    <>
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="🔍 Buscar por sector (ej: LV, AZ01...)"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        {searchTerm && (
+          <button 
+            className="clear-search"
+            onClick={() => setSearchTerm('')}
+            aria-label="Limpiar búsqueda"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+      <div className="table-wrapper">
       <table className="sector-table">
         <thead>
           <tr>
@@ -183,7 +235,8 @@ export default function ApplicationsTable({ asignados, now }) {
           })}
         </tbody>
       </table>
-    </div>
+      </div>
+    </>
   )
 }
 
