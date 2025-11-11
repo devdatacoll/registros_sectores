@@ -93,10 +93,10 @@ export default function ApplicationsTable({ asignados, now }) {
               value={campoFilter}
               onChange={(e) => setCampoFilter(e.target.value)}
             >
-              <option value="todos">🌍 Todos los campos</option>
-              <option value="horticultura">🌱 Horticultura</option>
-              <option value="concordia">🌾 Concordia</option>
-              <option value="la violeta">🍇 La Violeta</option>
+              <option value="todos">🌱 Todos los campos</option>
+              <option value="horticultura">Horticultura</option>
+              <option value="concordia">Concordia</option>
+              <option value="la violeta">La Violeta</option>
             </select>
           </div>
 
@@ -195,7 +195,7 @@ export default function ApplicationsTable({ asignados, now }) {
             value={campoFilter}
             onChange={(e) => setCampoFilter(e.target.value)}
           >
-            <option value="todos">Todos los campos</option>
+            <option value="todos">🌱 Todos los campos</option>
             <option value="horticultura">Horticultura</option>
             <option value="concordia">Concordia</option>
             <option value="la violeta">La Violeta</option>
